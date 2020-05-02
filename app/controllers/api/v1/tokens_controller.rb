@@ -5,7 +5,7 @@ class Api::V1::TokensController < ApplicationController
     @user = User.find_by_email(user_params[:email])
     if @user&.authenticate(user_params[:password])
       render json: {
-        token: JsonWebToken.encode(user_temp_token: @user&.generate_temp_token),
+        token: JsonWebToken.encode(session_token: @user.generate_session_token),
         email: @user.email
       }
     else

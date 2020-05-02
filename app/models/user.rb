@@ -6,9 +6,9 @@ class User < ApplicationRecord
   validates :password_digest, presence: true
   has_secure_password
 
-  def generate_temp_token
-    self.token = "#{SecureRandom.hex(10)}#{id}"
+  def generate_session_token
+    self.session_token = "#{SecureRandom.hex(10)}#{id}"
     save
-    token
+    session_token
   end
 end

@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 2020_05_02_020721) do
     t.string "password_digest", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "token"
+    t.string "session_token"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["token"], name: "index_users_on_token"
+    t.index ["session_token"], name: "index_users_on_session_token"
   end
 
 end

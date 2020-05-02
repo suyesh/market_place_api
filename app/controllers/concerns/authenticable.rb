@@ -8,7 +8,7 @@ module Authenticable
     return nil if header.nil?
 
     decoded = JsonWebToken.decode(header)
-    @current_user = User.find_by_token(decoded[:user_temp_token])
+    @current_user = User.find_by(session_token: decoded[:session_token])
   rescue ActiveRecord::RecordNotFound
   end
 end
