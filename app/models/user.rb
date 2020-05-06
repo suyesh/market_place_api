@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :password_digest, presence: true
   has_secure_password
 
-  has_many :products, dependent: :destory
+  has_many :products, dependent: :destroy
 
   def generate_session_token
     self.session_token = "#{SecureRandom.hex(10)}#{id}"
